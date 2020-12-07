@@ -1,0 +1,24 @@
+#Day 3 Part 1 - Advent of Code 2020
+import sys
+
+tree = 0
+open_space = 0
+first = True
+position = 3
+
+for line in sys.stdin:
+	if line != "":
+		line_read = line.rstrip("\n")
+		if first:
+			first = False
+		else:
+			if line_read[position] == ".":
+				open_space += 1
+			else:
+				if line_read[position] == "#":
+					tree += 1
+			position += 3
+			if position > len(line_read)-1:
+				position = position-len(line_read)
+
+print("Tree = {}, Open = {}".format(tree, open_space))
