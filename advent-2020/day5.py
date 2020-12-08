@@ -26,11 +26,16 @@ def column_search(seat):
 	return right
 
 highest = 0
+seat_list = []
+full_seats = range(0,1023)
 for boarding_pass in sys.stdin:
 		#print(row_search(boarding_pass.rstrip("\n")))
 		#print(column_search(boarding_pass.rstrip("\n")))
 		#print(row_search(boarding_pass.rstrip("\n")) * 8 + column_search(boarding_pass.rstrip("\n")))
+		seat_list.append(row_search(boarding_pass.rstrip("\n")) * 8 + column_search(boarding_pass.rstrip("\n")))
 		if highest < row_search(boarding_pass.rstrip("\n")) * 8 + column_search(boarding_pass.rstrip("\n")):
 			highest = row_search(boarding_pass.rstrip("\n")) * 8 + column_search(boarding_pass.rstrip("\n"))
 
 print(highest)
+print(len(seat_list))
+print(set(full_seats) - set(seat_list))
