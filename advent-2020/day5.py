@@ -1,4 +1,3 @@
-# your code goes here
 import sys
 import math #for ceil and floor functions
 
